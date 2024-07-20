@@ -35,6 +35,7 @@
             <th>Data</th>
             <th>Valor</th>
             <th>Categoria</th>
+            <th></th>
         </tr>
         <c:forEach var="despesa" items="${despesas}">
             <tr>
@@ -42,6 +43,7 @@
                 <td>${ despesa.getData() }</td>
                 <td>${ despesa.getValor() }</td>
                 <td>${ despesa.getCategoria() }</td>
+                <td><a href="deleteDespesa?id=${despesa.id}">Remover</a></td>
             </tr>
         </c:forEach>
     </table>
