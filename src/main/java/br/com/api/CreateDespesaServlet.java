@@ -5,6 +5,7 @@ import br.com.codandosimples.infra.ConnectionFactory;
 import br.com.codandosimples.model.Categoria;
 import br.com.codandosimples.model.Despesa;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +37,7 @@ public class CreateDespesaServlet extends HttpServlet {
         DespesaDAO dao = new DespesaDAO(connection);
         dao.save(despesa);
 
-        PrintWriter out = response.getWriter();
-        out.println("<html><body><h1>Despesa adicionada com sucesso!</h1></body></html>");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/despesaAdicionada.jsp");
+        dispatcher.forward(request, response);
     }
 }
