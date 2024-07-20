@@ -5,11 +5,12 @@
     <title>Cadastrar Despesas</title>
 </head>
 <body>
-    <form action="createDespesa" method="post">
+    <form action="controller" method="post">
         Descrição: <br/> <input type="text" name="descricao"> <br/><br/>
         Data: <br/> <input type="text" name="data"> <br/><br/>
         Valor: <br/> <input type="text" name="valor"> <br/><br/>
         Categoria: <br/> <input type="text" name="categoria"> <br/><br/>
+        <input type="hidden" name="action" value="CreateDespesa">
         <input type="submit" value="Enviar">
     </form>
 </body>

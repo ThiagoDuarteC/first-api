@@ -1,4 +1,4 @@
-package br.com.api;
+package br.com.api.actions;
 
 import br.com.codandosimples.dao.DespesaDAO;
 import br.com.codandosimples.infra.ConnectionFactory;
@@ -7,22 +7,16 @@ import br.com.codandosimples.model.Despesa;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-@WebServlet("/createDespesa")
-public class CreateDespesaServlet extends HttpServlet {
+public class CreateDespesa implements Action {
 
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String descricaoStr = request.getParameter("descricao");
         String dataStr = request.getParameter("data");
         String valorStr = request.getParameter("valor");
@@ -37,7 +31,6 @@ public class CreateDespesaServlet extends HttpServlet {
         DespesaDAO dao = new DespesaDAO(connection);
         dao.save(despesa);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/despesaAdicionada.jsp");
-        dispatcher.forward(request, response);
+        return "/WEB-INF/despesaAdicionada.jsp";
     }
 }

@@ -43,7 +43,7 @@
                 <td>${ despesa.getData() }</td>
                 <td>${ despesa.getValor() }</td>
                 <td>${ despesa.getCategoria() }</td>
-                <td><a href="deleteDespesa?id=${despesa.id}">Remover</a></td>
+                <td><a href="controller?action=DeleteDespesa&id=${despesa.id}">Remover</a></td>
             </tr>
         </c:forEach>
     </table>

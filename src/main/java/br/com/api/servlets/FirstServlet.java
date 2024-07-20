@@ -1,4 +1,4 @@
-package br.com.api;
+package br.com.api.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
